@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    
+    
+    let gameCounter = 0;
+    let playerScore = 0;
+    let computerScore = 0;
+    let computer =" ";
+
+
+/*    function game() {
+        while (gameCounter < 5) { 
+            player = prompt("Rock, Paper, or Scissors?", " ");
+            computerPlay();
+            round();
+            console.log(round());
+            gameCounter += 1;
+        }
+    } 
+*/
+
+    function game() {
+        if (gameCounter == 5) {
+            if (playerScore > computerScore) {
+                return "You won the game";
+            } else if (playerScore < computerScore) {
+                return "You lost the game";
+            } else {
+                return "Draw"
+            }   
+        } else {
+            round();
+        }
+}
+
+    function computerPlay() {
+
+        let randomNumber = Math.floor(Math.random() * 3);
+
+        if (randomNumber === 0) {
+            computer = "Rock";
+            console.log(computer);
+        } else if (randomNumber === 1) {
+            computer = "Paper";
+            console.log(computer);
+        } else {
+            computer = "Scissors";
+            console.log(computer);
+        }
+    }
+
+    function round() {
+        
+        player = prompt("Rock, Paper, or Scissors?", " ");
+        let playerSelection = player.toLowerCase();
+        computerPlay();
+
+        if (playerSelection == "rock" && computer == "Paper" || playerSelection == "paper" && computer == "Scissors" || playerSelection == "scissors" && computer == "Rock") {
+            computerScore += 1;
+            gameCounter += 1;
+            console.log ("You lose!")
+            return ("You lose!")
+        } else if (playerSelection == "rock" && computer == "Scissors" || playerSelection == "paper" && computer == "Rock" || playerSelection == "scissors" && computer == "Paper") {
+            playerScore += 1;
+            gameCounter += 1;
+            console.log ("You win!")
+            return ("You win!")
+        } else if (playerSelection == "rock" && computer == "Rock" || playerSelection == "paper" && computer == "Paper" || playerSelection == "scissors" && computer == "Scissors") {
+            gameCounter += 1;
+            console.log ("Draw")
+            return ("Draw")
+        } else {
+            return ("Invalid")
+        }
+    }
+
+
+</script>
+</html>
